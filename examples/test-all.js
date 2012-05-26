@@ -7,12 +7,12 @@
 
 var AsyncRunner = require('../lib/AsyncRunner');
 
-var as = new AsyncRunner();
+var ar = new AsyncRunner();
 
 var input = [1,2,3,4,5,6,7,8,9,10];
 
 input.forEach(function(n) {
-  as.add(function(done) {
+  ar.add(function(done) {
     setTimeout(function() {
       var err;
       console.log('Finished function for', n);
@@ -24,7 +24,7 @@ input.forEach(function(n) {
   console.log("Added function for", n);
 });
 
-as.run(function(err) {
+ar.run(function(err) {
   if(err) {
     return console.log('One function finished with error:', err, 'Other functions might be still running!');
   }

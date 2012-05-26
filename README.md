@@ -8,13 +8,13 @@ A class for running multiple asynchronous functions in JavaScript. Tested in [no
   To run some functions asynchronously you need to create an object of the AsyncRunner class:
 
   ```javascript
-  var as = new AsyncRunner();
+  var ar = new AsyncRunner();
   ```
 
   Then you can add all functions with `add` method.
 
   ```javascript
-  as.add(function(done) {
+  ar.add(function(done) {
     doSomethingHere();
     done();
   });
@@ -22,10 +22,10 @@ A class for running multiple asynchronous functions in JavaScript. Tested in [no
 
   Such function gets a single callback argument, usually named `done`, which must be run after the function has finished. This function can provided `done` callback with an error (string, `Error` object, etc.). See below.
 
-  When all functions are added to a queue, call the `run` method from the `as` object:
+  When all functions are added to a queue, call the `run` method from the `ar` object:
 
   ```javascript
-  as.run(function(err) {
+  ar.run(function(err) {
     if(err) return somethingWentWrong();
     everythingWasOk();
   });
